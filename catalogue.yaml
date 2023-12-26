@@ -38,8 +38,8 @@
 
   - name: installing npm 
     ansible.builtin.command: npm install
-      args:
-        chdir: /app
+    args:
+      chdir: /app
 
   - name: Copy catalogue
     ansible.builtin.copy:
