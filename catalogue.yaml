@@ -1,5 +1,5 @@
 - name: catalogue configuartion
-  hosts:
+  hosts: catalogue
   become: yes
   tasks:
   - name: disable and enable nodejs
