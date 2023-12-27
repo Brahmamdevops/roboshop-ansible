@@ -35,10 +35,15 @@
       dest: /app
       remote_src: yes
 
-  - name: npm install
-    ansible.builtin.package:
-      name: npm
-      state: present
+  # - name: npm install
+  #   ansible.builtin.package:
+  #     name: npm
+  #     state: pr
+
+
+  - name: install dependencies
+    npm:
+      path: /app
 
   - name: copy cart service
     ansible.builtin.copy:
