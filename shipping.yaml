@@ -64,7 +64,7 @@
   - name: load schema
     ansible.builtin.command: mysql -h mysql.mvaws.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 
 
-   - name: check cities schema exists or not
+  - name: check cities schema exists or not
     ansible.builtin.command:  mysql -h mysql.mvaws.online -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
     register: schema
 
@@ -76,8 +76,8 @@
     ansible.builtin.shell: "mysql -h mysql.mvaws.online -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
     when: schema.stdout != "1"
 
-    - name: enabling and starting shipping
-      ansible.builtin.service:
-        name: shipping
-        state: restarted
-        enabled: yes
+  - name: enabling and starting shipping
+    ansible.builtin.service:
+      name: shipping
+      state: restarted
+      enabled: yes
